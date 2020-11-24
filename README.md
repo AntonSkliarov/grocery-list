@@ -1,5 +1,7 @@
 # Grocery List
 
+For demo click [HERE](https://antonskliarov.github.io/grocery-list/)
+
 * Added grocery list (local storage was used in this task)
 * You can add a new product to the list
 * You can delete the product from the list
