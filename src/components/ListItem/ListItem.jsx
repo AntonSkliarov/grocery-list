@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function ListItem({ product }) {
+export function ListItem({ product, deleteProduct }) {
   return (
     <li>
       {`Name: ${product.name}`}
 
       <select>
-        <option>{`Status: ${product.status}`}</option>
+        <option value={product.status}>{product.status}</option>
+        <option value="Ran out">Ran out</option>
+        <option value="Have">Have</option>
       </select>
 
       {`Priority: ${product.priority}`}
       <button
         type="button"
         title="delete product from the list"
+        onClick={() => deleteProduct(product.id)}
       >
         X
       </button>
@@ -22,6 +25,7 @@ export function ListItem({ product }) {
 }
 
 ListItem.propTypes = {
+  deleteProduct: PropTypes.func.isRequired,
   product: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

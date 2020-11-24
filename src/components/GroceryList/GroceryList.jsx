@@ -1,21 +1,46 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { ListItem } from '../ListItem';
 
-export function GroceryList({ products }) {
+export function GroceryList({
+  products,
+  deleteProduct,
+  setCurrentFilterStatus,
+}) {
+  const setFilter = useCallback((event) => {
+    setCurrentFilterStatus(event.target.value);
+  }, []);
+
   return (
-    <ul>
-      {products.map(product => (
-        <ListItem
-          key={product.id}
-          product={product}
-        />
-      ))}
-    </ul>
+    <>
+      <label>
+        Choose a status filter option
+        <select
+          className="products-sorting-selector"
+          onChange={setFilter}
+        >
+          <option value="All">All</option>
+          <option value="Ran out">Ran out</option>
+          <option value="Have">Have</option>
+        </select>
+      </label>
+
+      <ul>
+        {products.map(product => (
+          <ListItem
+            key={product.id}
+            product={product}
+            deleteProduct={deleteProduct}
+          />
+        ))}
+      </ul>
+    </>
   );
 }
 
 GroceryList.propTypes = {
+  deleteProduct: PropTypes.func.isRequired,
+  setCurrentFilterStatus: PropTypes.func.isRequired,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
