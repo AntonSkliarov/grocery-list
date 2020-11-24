@@ -6,7 +6,7 @@ import { useLocalStorage } from './custom_hooks/useLocalStorage';
 
 const basicProductList = [{
   name: 'Carrot',
-  status: 'have',
+  status: 'Have',
   priority: 5,
   id: '55522314',
 }];
