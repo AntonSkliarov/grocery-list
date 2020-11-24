@@ -45,6 +45,22 @@ export function App() {
     }
   }, [currentFilterStatus, products]);
 
+  const statusChange = (status, productId) => {
+    const filteredProducts = productsForView.map((product) => {
+      if (product.id === productId) {
+        return {
+          ...product,
+          status,
+        };
+      }
+
+      return product;
+    });
+
+    setProducts(filteredProducts);
+    setProductsForView(filteredProducts);
+  };
+
   return (
     <div className="grocery-list-app">
       <div className="grocery-list">
@@ -55,6 +71,7 @@ export function App() {
             setCurrentFilterStatus={setCurrentFilterStatus}
             products={sortedByPriorityList}
             deleteProduct={deleteProduct}
+            statusChange={statusChange}
           />
         )}
       </div>

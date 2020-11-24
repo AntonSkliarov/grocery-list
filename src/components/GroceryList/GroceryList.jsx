@@ -6,6 +6,7 @@ export function GroceryList({
   products,
   deleteProduct,
   setCurrentFilterStatus,
+  statusChange,
 }) {
   const setFilter = useCallback((event) => {
     setCurrentFilterStatus(event.target.value);
@@ -31,6 +32,7 @@ export function GroceryList({
             key={product.id}
             product={product}
             deleteProduct={deleteProduct}
+            statusChange={statusChange}
           />
         ))}
       </ul>
@@ -40,6 +42,7 @@ export function GroceryList({
 
 GroceryList.propTypes = {
   deleteProduct: PropTypes.func.isRequired,
+  statusChange: PropTypes.func.isRequired,
   setCurrentFilterStatus: PropTypes.func.isRequired,
   products: PropTypes.arrayOf(
     PropTypes.shape({

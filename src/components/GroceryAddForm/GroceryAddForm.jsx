@@ -10,7 +10,10 @@ export function GroceryAddForm({ setProducts, products }) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (name.length === 0 || priority === '' || status === '') {
+    if (name.length === 0
+      || priority === ''
+      || status === ''
+    ) {
       return;
     }
 
