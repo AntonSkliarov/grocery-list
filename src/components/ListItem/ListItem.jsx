@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export function ListItem({ product }) {
   return (
-    <li key={product.id}>
+    <li>
       {`Name: ${product.name}`}
 
       <select>

@@ -29,7 +29,7 @@ export function GroceryAddForm({ setProducts, products }) {
   };
 
   const selectPriority = useCallback(event => (
-    setPriority(event.target.value)
+    setPriority(Number(event.target.value))
   ), []);
 
   return (

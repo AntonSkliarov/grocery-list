@@ -8,7 +8,7 @@ export function App() {
   const [products, setProducts] = useLocalStorage('products', [{
     name: 'Carrot',
     status: 'have',
-    priority: '5',
+    priority: 5,
     id: '55522314',
   }]);
 
