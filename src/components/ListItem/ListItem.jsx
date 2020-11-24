@@ -11,7 +11,10 @@ export function ListItem({ product }) {
       </select>
 
       {`Priority: ${product.priority}`}
-      <button type="button" title="delete product from the list">
+      <button
+        type="button"
+        title="delete product from the list"
+      >
         X
       </button>
     </li>
