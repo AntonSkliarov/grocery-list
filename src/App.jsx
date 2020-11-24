@@ -62,24 +62,29 @@ export function App() {
   };
 
   return (
-    <div className="grocery-list-app">
-      <div className="grocery-list">
-        <h1>Grocery list</h1>
+    <>
+      <h1 className="page-header mb-3 text-center">
+        Grocery list
+      </h1>
+      <div className="grocery-list-app  d-flex justify-content-center">
 
-        {!!productsForView && (
-          <GroceryList
-            setCurrentFilterStatus={setCurrentFilterStatus}
-            products={sortedByPriorityList}
-            deleteProduct={deleteProduct}
-            statusChange={statusChange}
-          />
-        )}
+        <GroceryAddForm
+          setProducts={setProducts}
+          products={sortedByPriorityList}
+        />
+
+        <div className="grocery-list p-3">
+          {!!productsForView && (
+            <GroceryList
+              setCurrentFilterStatus={setCurrentFilterStatus}
+              products={sortedByPriorityList}
+              deleteProduct={deleteProduct}
+              statusChange={statusChange}
+            />
+          )}
+        </div>
+
       </div>
-
-      <GroceryAddForm
-        setProducts={setProducts}
-        products={sortedByPriorityList}
-      />
-    </div>
+    </>
   );
 }

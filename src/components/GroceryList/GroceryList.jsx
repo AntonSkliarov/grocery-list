@@ -15,9 +15,9 @@ export function GroceryList({
   return (
     <>
       <label>
-        Choose a status filter option
+        <span className="text-info">Choose a status filter option: </span>
         <select
-          className="products-sorting-selector"
+          className="custom-select custom-select-sm"
           onChange={setFilter}
         >
           <option value="All">All</option>
@@ -26,7 +26,7 @@ export function GroceryList({
         </select>
       </label>
 
-      <ul>
+      <ul className="list-group">
         {products.map(product => (
           <ListItem
             key={product.id}

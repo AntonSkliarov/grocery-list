@@ -41,18 +41,19 @@ export function GroceryAddForm({ setProducts, products }) {
   ), []);
 
   return (
-    <div className="grocery-add-form">
-      <form onSubmit={onSubmit}>
+    <div className="grocery-add-form px-3 mr-4">
+      <h3 className="m-2">Add new product</h3>
+      <form onSubmit={onSubmit} className="form-group m-2">
         <input
           type="text"
-          className="new-product"
+          className="new-product form-control mb-3"
           placeholder="Enter product name"
           value={name}
           onChange={event => setName(event.target.value)}
         />
 
         <select
-          className="product__priority-selector"
+          className="custom-select mb-3"
           onChange={selectPriority}
         >
           <option value="" disabled selected>Select priority</option>
@@ -64,7 +65,7 @@ export function GroceryAddForm({ setProducts, products }) {
         </select>
 
         <select
-          className="product__priority-selector"
+          className="custom-select mb-4"
           onChange={selectStatus}
         >
           <option value="" disabled selected>Select status</option>
@@ -73,7 +74,10 @@ export function GroceryAddForm({ setProducts, products }) {
         </select>
 
         <div>
-          <button type="submit">
+          <button
+            type="submit"
+            className="btn btn-primary btn-sm"
+          >
             Add product
           </button>
         </div>
